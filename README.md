@@ -20,6 +20,7 @@ This is an RPI based server application, connecting through *nRF24L01* wireless 
 	$ sudo make install
 
 **How to run**
+
 	$ cd <to-your-prefered-dir>
 	$ net
 
