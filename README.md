@@ -13,7 +13,7 @@ This is an RPI based server application, connecting through *nRF24L01* wireless 
 	|  7  |   MISO   | 21  | SPI_MISO(9) |
 	|  8  |   IRQ    |  -  |  -          |
 
-![WiFi](RPI-wifi.jpg?raw=false "RPI-wifi")
+![WiFi](RPI-wifi.jpg?raw=true "RPI-wifi")
 
 **How to build**
 
@@ -22,12 +22,12 @@ This is an RPI based server application, connecting through *nRF24L01* wireless 
 
 **How to run**
 
-	$ cd <to-your-prefered-dir>
+	$ cd <to-your-preferred-dir>
 	$ net
 
 **Prerequisite**
 
-	Build modified RF24+ lib, from its own repository here
+	Modified RF24+ lib build, from its own repository here
 
 **Oberon Net Toolbox**
 
