@@ -41,7 +41,7 @@ This is an RPI based server application, connecting through *nRF24L01* wireless 
 RPI Net server broadcasts time update every 16 seconds, to receive time updates start & unprotect the Oberon Net server
 
 # Notes
-The connection was tested with RPI model B(-). It required some changes in timimg. The short range works best with low or minimum radio power. Due to some noise, retry count was raised, to allow for more retrasmits.
+The connection was tested with RPI model B(-). It required some changes in timimg. The short range works best with low or minimum radio power. Due to some noise, retry count was raised, to allow for more retransmits.
 
 **Module SCC**
 
@@ -53,4 +53,4 @@ The connection was tested with RPI model B(-). It required some changes in timim
 
 	PROCEDURE Start (*added*)
 	WriteReg1(4, 0*11H + 15); (*SETUP_RETR delay + retry count*)
-	WriteReg1(6, 03H); (*RF_SETUP <= 1Mb rate, 0dBm wide range, -12dBm short rea
+	WriteReg1(6, 03H); (*RF_SETUP <= 1Mb rate, 0dBm wide range, -12dBm short reach*)
