@@ -54,3 +54,8 @@ The connection was tested with RPI model B(-). It required some changes in timim
 	PROCEDURE Start (*added*)
 	WriteReg1(4, 0*11H + 15); (*SETUP_RETR delay + retry count*)
 	WriteReg1(6, 03H); (*RF_SETUP <= 1Mb rate, 0dBm wide range, -12dBm short reach*)
+
+**Module Net**
+
+On ocassions file transfer may fail, *Net.Reset* is the remedy, also proved useful to add *partner[0] := 0X* to it, and move *reply(0)* right after *ReceiveData()* in *PROCEDURE ReceiveFiles*
+
