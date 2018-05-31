@@ -1,6 +1,7 @@
 # Net server for Oberon workstations
 
 This is an RPI based server application, connecting through *nRF24L01* wireless module. It requires specific wiring for use with GPIO pin connector port on RPI side. Each FPGA Oberon station needs *nRF24L01* plugged in.
+
 	| PIN | NRF24L01 | RPI |   GPIO      |
 	|-----|----------|-----|-------------|
 	|  1  |   GND    |  6  | GND         |
@@ -15,6 +16,7 @@ This is an RPI based server application, connecting through *nRF24L01* wireless 
 ![WiFi](RPI-wifi.jpg?raw=true "RPI-wifi")
 
 **How to build**
+
 	$ sudo make install
 
 **How to run**
@@ -22,9 +24,11 @@ This is an RPI based server application, connecting through *nRF24L01* wireless 
 	$ net
 
 **Prerequisite**
+
 	Build modified RF24+ lib, from its own repository here
 
-# Oberon station Toolbox
+**Oberon Net Toolbox**
+
 	Net.StartServer  Net.Unprotect  Net.WProtect
 	Net.StopServer
 	Net.SendMsg RPI hello there ~
@@ -39,6 +43,7 @@ RPI Net server broadcasts time update every 16 seconds, to receive time updates 
 The connection was tested with RPI model B(-). It required some changes in timimg. The short range works best with low or minimum radio power. Due to some noise, retry count was raised, to allow for more retrasmits.
 
 **Module SCC**
+
 	CONST Wait = 50; Wait0 = 5; Wait1 = 1000;
 
 	PROCEDURE SubSnd (*use Wait0*)
