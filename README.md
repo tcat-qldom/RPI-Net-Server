@@ -13,10 +13,11 @@ This is an RPI based server application, connecting through *nRF24L01* wireless 
 	|  7  |   MISO   | 21  | SPI_MISO(9) |
 	|  8  |   IRQ    |  -  |  -          |
 
-![WiFi](RPI-wifi.jpg?raw=true "RPI-wifi")
+![WiFi](RPI-wifi.jpg?raw=false "RPI-wifi")
 
 **How to build**
 
+	$ make
 	$ sudo make install
 
 **How to run**
@@ -52,7 +53,7 @@ The connection was tested with RPI model B(-). It required some changes in timim
 	PROCEDURE ReceiveHead (*use Wait1*)
 
 	PROCEDURE Start (*added*)
-	WriteReg1(4, 0*11H + 15); (*SETUP_RETR delay + retry count*)
+	WriteReg1(4, 0*10H + 15); (*SETUP_RETR delay + retry count*)
 	WriteReg1(6, 03H); (*RF_SETUP <= 1Mb rate, 0dBm wide range, -12dBm short reach*)
 
 **Module Net**
