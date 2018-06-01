@@ -185,6 +185,8 @@ void receivehead( const uint32_t timeout )
 	uint32_t time = millis() + timeout;
 	do {
 		receivehead(&head1);
+		/*printf ("%d %d %d %d\n", \
+			head1.typ, head1.len, head1.sadr, head1.dadr);*/
 		if ( head1.valid && ( head1.sadr != head0.dadr ) ) {
 			printf(" skipped\n");
 			skip(head1.len); head1.valid = false;
@@ -205,7 +207,7 @@ void uxobtime( int32_t *obtime )
 		+ tm->tm_min)*64 + tm->tm_sec; 
 }
 
-void appends( char s[], uint8_t d[], int32_t *k )
+void appends( const char s[], uint8_t d[], int32_t *k )
 {
 	int32_t i, j;
 	char ch;
@@ -246,7 +248,7 @@ void senddata( FILE *f )
 		k = fread(&buf, 1, PAK_SIZE, f);
 		do {
 			send(seqno, k, buf); receivehead(T1);
-	      printf ("%d %d %d %d %d\n", \
+			printf ("%d %d %d %d %d\n", \
 				head1.typ, head1.len, head1.sadr, head1.dadr, k);
 		} while ( head1.typ == (seqno + ACK) );
 		seqno = (seqno + 1) % 8; len += k;
@@ -317,8 +319,7 @@ int main( int argc, char** argv )
 					f = fopen(filename, "r");
 					if ( f != NULL ) {
 						printf(" sending\n"); setpartner(id);
-						senddata(f); send(ACK, 0, dmy);
-						fclose(f);
+						senddata(f); send(ACK, 0, dmy); fclose(f);
 					} else { send(NAK, 0, dmy); printf("~\n"); }
 					reply(0);
 					break;
