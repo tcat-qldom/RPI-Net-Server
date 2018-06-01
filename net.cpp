@@ -23,10 +23,10 @@ const uint64_t pipes[6] = { 0xe7e7e7e7e7LL, 0xc2c2c2c2c2LL,
 
 // CE Pin, CSN Pin, SPI Speed
 
-// Setup for GPIO 22 CE and CE0 CSN with SPI Speed @ 4Mhz
+// Setup for GPIO P1-22 CE and CS0 CSN with SPI Speed @ 4Mhz
 RF24 radio(RPI_V2_GPIO_P1_22, BCM2835_SPI_CS0, BCM2835_SPI_SPEED_4MHZ); 
 
-// Setup for GPIO_25 and /dev/spidev0.0
+// Setup for GPIO(25) P1-22 and /dev/spidev0.0
 // RF24 radio(25,0);
 
 // Globals

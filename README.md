@@ -7,7 +7,7 @@ This is an RPI based server application, connecting through *nRF24L01* wireless 
 	|  1  |   GND    |  6  | GND         |
 	|  2  |   VCC    |  1  | 3.3V        |
 	|  3  |   CE     | 22  | (25)        |
-	|  4  |   CSN    | 24  | (8)         |
+	|  4  |   CSN    | 24  | CS0(8)      |
 	|  5  |   SCK    | 23  | SPI_CLK(11) |
 	|  6  |   MOSI   | 19  | SPI_MOSI(10)|
 	|  7  |   MISO   | 21  | SPI_MISO(9) |
@@ -58,5 +58,19 @@ The connection was tested with RPI model B(-). It required some changes in timim
 
 **Module Net**
 
-On ocassions file transfer may fail, *Net.Reset* is the remedy, also proved useful to add *partner[0] := 0X* to it, and move *reply(0)* right after *ReceiveData()* in *PROCEDURE ReceiveFiles*
+On ocassions file transfer may fail, *Net.Reset* is the remedy, also proved useful to add *partner[0] := 0X* to it, and move *reply(0)* right after *ReceiveData()* in *PROCEDURE ReceiveFiles*.
+
+	PROCEDURE Reset (*added*)
+	*partner[0] := 0X*
+
+	PROCEDURE ReceiveFiles (*moved*)
+	ReceiveData(F, done); *reply(0);*
+
+For multifile transfer extra ACK packets added after *SendData()*
+
+	PROCEDURE SendFiles (*added*)
+	SendData(F); *Send(ACK, 0, dmy);*
+	
+	PROCEDURE Serve (*added*)
+	Texts.Append(Oberon.Log, W.buf); SendData(F); *Send(ACK, 0, dmy);*
 
