@@ -1,6 +1,6 @@
 # Net server for Oberon workstations
 
-This is an RPI based server application, connecting through *nRF24L01* wireless module. It requires specific wiring for use with P1 GPIO connector port on RPI side. Each FPGA Oberon station needs *nRF24L01* plugged in. It is basically `SCC.Mod',`Net.Mod' recoded in cpp, and it appears as another Oberon station to the user.
+This is an RPI based server application, connecting through *nRF24L01* wireless module. It requires specific wiring for use with P1 GPIO connector port on RPI side. Each FPGA Oberon station needs *nRF24L01* plugged in. It is basically `SCC.Mod`,`Net.Mod` recoded in cpp, and it appears as another Oberon station to the user.
 
 	| PIN | NRF24L01 | RPI P1 |   GPIO      |
 	|-----|----------|--------|-------------|
