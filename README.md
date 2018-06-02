@@ -1,17 +1,17 @@
 # Net server for Oberon workstations
 
-This is an RPI based server application, connecting through *nRF24L01* wireless module. It requires specific wiring for use with GPIO pin connector port on RPI side. Each FPGA Oberon station needs *nRF24L01* plugged in.
+This is an RPI based server application, connecting through *nRF24L01* wireless module. It requires specific wiring for use with P1 GPIO connector port on RPI side. Each FPGA Oberon station needs *nRF24L01* plugged in. It is basically `SCC.Mod',`Net.Mod' recoded in cpp, and it appears as another Oberon station to the user.
 
-	| PIN | NRF24L01 | RPI |   GPIO      |
-	|-----|----------|-----|-------------|
-	|  1  |   GND    |  6  | GND         |
-	|  2  |   VCC    |  1  | 3.3V        |
-	|  3  |   CE     | 22  | (25)        |
-	|  4  |   CSN    | 24  | CS0(8)      |
-	|  5  |   SCK    | 23  | SPI_CLK(11) |
-	|  6  |   MOSI   | 19  | SPI_MOSI(10)|
-	|  7  |   MISO   | 21  | SPI_MISO(9) |
-	|  8  |   IRQ    |  -  |  -          |
+	| PIN | NRF24L01 | RPI P1 |   GPIO      |
+	|-----|----------|--------|-------------|
+	|  1  |   GND    |    6   | GND         |
+	|  2  |   VCC    |    1   | 3.3V        |
+	|  3  |   CE     |   22   | (25)        |
+	|  4  |   CSN    |   24   | CS0(8)      |
+	|  5  |   SCK    |   23   | SPI_CLK(11) |
+	|  6  |   MOSI   |   19   | SPI_MOSI(10)|
+	|  7  |   MISO   |   21   | SPI_MISO(9) |
+	|  8  |   IRQ    |    -   |  -          |
 
 ![WiFi](RPI-wifi.jpg?raw=true "RPI-wifi")
 
